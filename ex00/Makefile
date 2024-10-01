@@ -1,17 +1,19 @@
-Name = pp00
-SRC = .
+NAME = megaphone
+SRC = megaphone.cpp
 
 OBJS	= ${SRC:.cpp=.o}
 
-CC		= gcc
+CC		= g++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM		= rm -f
 
+OBJ = $(SRC:.cpp=.o)
+
 all:	${NAME}
 
 ${NAME}:	${OBJS}
-			$(CC) $(OBJS) $(CFLAGS) -o ${NAME}
+			$(CC) $(CFLAGS) ${OBJ} -o ${NAME}
 
 exe:
 	./$(NAME)
