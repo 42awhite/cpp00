@@ -20,9 +20,20 @@ Phonebook::Phonebook(void)
             modify_contact(id%8);
             id++;
         }
-        else if (input == "SEARCH" || input == "search")
+        else if (input.substr(0, 6) == "SEARCH" || input.substr(0, 6) == "search")
         {
-            print_contacts();
+            int contact_id;  
+
+            std::istringstream iss(input.substr(6)); 
+            iss >> contact_id;
+            if (iss && contact_id >= 0 && contact_id <= 7) 
+            {
+                print_one_contact(contact_id);  // Llamar a la función con el ID proporcionado
+            } 
+            else 
+            {
+                print_contacts();  // Si no hay número o es inválido, mostrar todos los contactos
+            }
         }
         else if (input == "EXIT" || input == "exit")
         {
