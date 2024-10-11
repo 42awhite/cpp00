@@ -10,6 +10,7 @@ class Phonebook
     Contact contacts[8];
     void modify_contact(int id);
     void print_contacts(void);
+    void print_one_contact(int id);
     public:
     Phonebook(void);
     ~Phonebook(void);

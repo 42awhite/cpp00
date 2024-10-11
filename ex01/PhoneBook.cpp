@@ -46,12 +46,29 @@ void Phonebook::modify_contact(int id)
    // contacts[2].setFirstName("Paco");
 }
 
+void Phonebook::print_one_contact(int id)
+{
+    std::cout << "| index  |first name|last name | nickname |" << std::endl;
+
+        std::cout << "|" << std::setw(8) << id << "|"; //4
+
+        // Obtener el nombre, apellido y apodo
+        std::string firstName = contacts[id].getFirstName();
+        std::string lastName = contacts[id].getLastName();
+        std::string nickname = contacts[id].getNickname();
+
+        // Imprimir el nombre, truncando o rellenando con espacios
+        std::cout << std::setw(10) << std::right << (firstName.length() > 10 ? firstName.substr(0, 9) + "." : firstName) << "|";
+        std::cout << std::setw(10) << std::right << (lastName.length() > 10 ? lastName.substr(0, 9) + "." : lastName) << "|";
+        std::cout << std::setw(10) << std::right << (nickname.length() > 10 ? nickname.substr(0, 9) + "." : nickname) << "|" << std::endl;
+}
+
 void Phonebook::print_contacts(void)
 {
     std::cout << "| index  |first name|last name | nickname |" << std::endl;
     for (int n = 0; n < 8; n++)
     {
-        std::cout << "|    " << std::setw(4) << n << "|";
+        std::cout << "|" << std::setw(8) << n << "|"; //4
 
         // Obtener el nombre, apellido y apodo
         std::string firstName = contacts[n].getFirstName();
