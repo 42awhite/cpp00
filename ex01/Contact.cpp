@@ -11,7 +11,7 @@ Contact::~Contact(void)
 
 std::string get_input(std::string msg)
 {
-		std::string input;
+	std::string input;
 
 	std::cout << "Introduce tu " << msg << std::endl;
 	std::getline(std::cin, input);
